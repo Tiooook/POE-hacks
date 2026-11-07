@@ -1,0 +1,50 @@
+/*Remove margin and padding*/
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* App wrapper rendered by App.jsx */
+#root > div {
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.main-content {
+  min-height: 0;
+  overflow: auto;
+}
+
+.navbar {
+  background-color: #8c2c2b;
+  padding: clamp(12px, 2vh, 28px) clamp(16px, 4vw, 64px);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  display: block;
+  height: clamp(32px, 5vh, 64px);
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: clamp(16px, 3vw, 48px);
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(1rem, 1.4vw, 1.5rem);
+}
