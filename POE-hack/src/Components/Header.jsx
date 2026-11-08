@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logoWhite from "../assets/logoWhite.png";
 
-function Header() {
+function Header({ setShowIntro }) {
   return (
     <nav className="navbar">
       <div className="navbar-brand">

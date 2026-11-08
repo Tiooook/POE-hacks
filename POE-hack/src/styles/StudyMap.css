@@ -24,3 +24,29 @@
 .leaflet-bottom.locate-control {
   bottom: calc(2 * var(--zoom-button-size) + 24px);
 }
+
+.leaflet-tooltip.building-label {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  color: #000000;
+  font:
+    600 13px/1.2 "DM Sans",
+    sans-serif;
+}
+
+.leaflet-tooltip.building-label::before {
+  display: none;
+}
+
+.leaflet-tooltip.building-label .m {
+  width: fit-content;
+  margin: 2px auto 0;
+  padding: 2px 6px;
+  border: 1px solid #16703a;
+  border-radius: 999px;
+  background: white;
+  color: #16703a;
+  font-weight: 700;
+}

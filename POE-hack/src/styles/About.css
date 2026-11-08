@@ -1,0 +1,50 @@
+.about-document {
+  position: relative;
+  margin-inline: auto;
+  width: 100%;
+  background: white;
+  color: black;
+  font: 1rem/1.45 Arial, sans-serif;
+}
+
+.about-pages img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Preserve the original typesetting on wide screens. The HTML transcript
+   supplies the reading order and becomes the visible layout on small screens. */
+@media (width >= 700px) {
+  .about-copy {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
+
+@media (width < 700px) {
+  .about-pages {
+    display: none;
+  }
+
+  .about-copy {
+    padding: 2rem clamp(1.25rem, 6vw, 4rem);
+  }
+
+  .about-copy h1 {
+    margin: 0 0 2rem;
+    font-size: 2rem;
+  }
+
+  .about-copy h2 {
+    margin: 2rem 0 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .about-copy li + li {
+    margin-top: 0.3rem;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "noiseLevel": ["Any", "Quiet", "Moderate", "Social"],
+  "studyType": ["Individual", "Group"],
+  "facilities": ["Any", "Board", "TV/Projector", "Board + TV/Projector"],
+  "stepFreeAccess": ["No preference", "Required"]
+}

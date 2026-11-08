@@ -12,28 +12,30 @@ import {
 } from "react-leaflet";
 import FlyToSpot from "../utils/flyToSpot.js";
 import MyLocationButton from "./Locate.jsx";
-import SearchBar from "./SearchBar.jsx";
+import SpotMarker from "./SpotMarker.jsx";
 import "leaflet/dist/leaflet.css";
 import "../styles/StudyMap.css";
 import userMarkerUrl from "../assets/userMarker.png";
-import spots from "../data/SpotsList.json";
 
 const userMarker = new L.Icon({
   iconUrl: userMarkerUrl, // URL or imported asset
-  iconSize: [49, 49], // Size of the icon [width, height]
-  iconAnchor: [24.5, 24.5], // Point of the icon which will correspond to marker's location
+  iconSize: [40, 40], // Size of the icon [width, height]
+  iconAnchor: [20, 20], // Point of the icon which will correspond to marker's location
   popupAnchor: [0, -38], // Point from which the popup should open relative to the iconAnchor
 });
 
 const options = {
-  enableHighAccuracy: true, // Forces the device to use GPS if available (more battery drain)
   timeout: 5000, // Maximum time (ms) allowed to return a position
   maximumAge: 0, // Force the device to fetch a fresh position instead of a cached one
 };
 
-function StudyMap({ selectedSpot }) {
+function StudyMap({ spots, matchedSpots, selectedSpot, onSelect }) {
   const [position, setPosition] = useState(null);
+  const matchKindById = new Map(
+    matchedSpots.map((spot) => [spot.id, spot.matchKind]),
+  );
 
+  // Get user location when it changes
   useEffect(() => {
     if (!navigator.geolocation) return;
 
@@ -52,8 +54,8 @@ function StudyMap({ selectedSpot }) {
     <>
       <MapContainer
         style={{ height: "100%", width: "100%" }}
-        center={[51.505, -0.09]}
-        zoom={13}
+        center={[40.04617515239396, -76.31969351442275]}
+        zoom={19}
         scrollWheelZoom={false}
         zoomControl={false}
       >
@@ -66,19 +68,20 @@ function StudyMap({ selectedSpot }) {
 
         {/* If selected a spot, the map will fly to that spot and show a description popup */}
         <FlyToSpot spot={selectedSpot} />
-        {selectedSpot && (
-          <Marker
-            position={[
-              selectedSpot.coordinates.lat,
-              selectedSpot.coordinates.long,
-            ]}
+        {spots.map((spot) => (
+          <SpotMarker
+            key={spot.id}
+            spot={spot}
+            matchKind={matchKindById.get(spot.id) ?? "ineligible"}
+            isSelected={selectedSpot?.id === spot.id}
+            onSelect={onSelect}
           />
-        )}
+        ))}
         {position && (
           <>
             <CircleMarker
               center={position}
-              radius={60}
+              radius={50}
               pathOptions={{
                 stroke: false,
                 fillColor: "#3f80e9",
@@ -89,6 +92,8 @@ function StudyMap({ selectedSpot }) {
             <Marker position={position} icon={userMarker} interactive={false} />
           </>
         )}
+
+        {/* Buttons */}
         <MyLocationButton position={position} />
         <ZoomControl position="bottomright" />
 

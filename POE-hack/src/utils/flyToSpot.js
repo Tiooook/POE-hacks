@@ -8,7 +8,7 @@ function FlyToSpot({ spot }) {
     if (!spot) return;
 
     const { lat, long } = spot.coordinates;
-    map.flyTo([lat, long], 16);
+    map.flyTo([lat, long], 18.5);
   }, [map, spot]);
 
   return null;

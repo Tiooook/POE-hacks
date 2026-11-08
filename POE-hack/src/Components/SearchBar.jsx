@@ -50,13 +50,19 @@ function SearchBar({ spots = [], onSelect }) {
       {isOpen && term && (
         <div className="place-search-results">
           {matches.length === 0 ? (
-            <p role="status">No matching study spots.</p>
+            <p role="status" style={{ fontFamily: '"DM Sans", sans-serif' }}>
+              No matching study spots.
+            </p>
           ) : (
             // Return a dropdown list of 5 matches
             <ul>
               {matches.slice(0, 5).map((spot) => (
                 <li key={spot.id}>
-                  <button type="button" onClick={() => selectSpot(spot)}>
+                  <button
+                    type="button"
+                    onClick={() => selectSpot(spot)}
+                    style={{ fontFamily: '"DM Sans", sans-serif' }}
+                  >
                     {spot.name}
                     {spot.building && <small>{spot.building}</small>}
                   </button>
