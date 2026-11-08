@@ -12,9 +12,11 @@ import {
 } from "react-leaflet";
 import FlyToSpot from "../utils/flyToSpot.js";
 import MyLocationButton from "./Locate.jsx";
+import SearchBar from "./SearchBar.jsx";
 import "leaflet/dist/leaflet.css";
 import "../styles/StudyMap.css";
 import userMarkerUrl from "../assets/userMarker.png";
+import spots from "../data/SpotsList.json";
 
 const userMarker = new L.Icon({
   iconUrl: userMarkerUrl, // URL or imported asset

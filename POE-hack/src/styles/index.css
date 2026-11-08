@@ -17,9 +17,26 @@ body,
   grid-template-rows: auto minmax(0, 1fr);
 }
 
-.main-content {
-  min-height: 0;
-  overflow: auto;
+.explore-map {
+  position: relative;
+  height: 100%;
+}
+
+.place-search {
+  position: absolute;
+  top: 1.5%;
+  left: 35%;
+  z-index: 1001;
+  width: 30%;
+}
+
+.place-search input {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.place-search-results {
+  background: white;
 }
 
 .navbar {

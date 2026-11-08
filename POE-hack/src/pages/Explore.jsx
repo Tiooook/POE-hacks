@@ -7,10 +7,10 @@ function Explore() {
   const [selectedSpot, setSelectedSpot] = useState(null);
 
   return (
-    <>
+    <div className="explore-map">
       <SearchBar spots={spots} onSelect={setSelectedSpot} />
       <StudyMap selectedSpot={selectedSpot} />
-    </>
+    </div>
   );
 }
 
