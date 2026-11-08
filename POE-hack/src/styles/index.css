@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+
 /*Remove margin and padding*/
 html,
 body,
@@ -22,7 +24,9 @@ body,
 
 .navbar {
   background-color: #8c2c2b;
-  padding: clamp(12px, 2vh, 28px) clamp(16px, 4vw, 64px);
+  padding: clamp(8.4px, 1.4vh, 19.6px) clamp(16px, 4vw, 64px);
+  padding-left: 30px;
+  overflow: clip;
 }
 
 .navbar-brand {
@@ -32,8 +36,10 @@ body,
 
 .navbar-brand img {
   display: block;
-  height: clamp(32px, 5vh, 64px);
+  height: clamp(22.4px, 3.5vh, 44.8px);
   width: auto;
+  transform: scale(4.7);
+  transform-origin: left center;
 }
 
 .nav-links {
@@ -45,6 +51,7 @@ body,
 
 .navbar a {
   color: white;
+  font-family: "DM Sans", sans-serif;
   text-decoration: none;
-  font-size: clamp(1rem, 1.4vw, 1.5rem);
+  font-size: clamp(1.1rem, 1.54vw, 1.65rem);
 }
