@@ -39,12 +39,12 @@ Map tiles require an internet connection. Browser location access requires permi
 
 ### Commands
 
-| Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the Vite development server |
-| `npm run build` | Build the production site into `dist/` |
-| `npm run preview` | Serve the production build locally |
-| `npm run lint` | Run ESLint |
+| Command           | Purpose                                |
+| ----------------- | -------------------------------------- |
+| `npm run dev`     | Start the Vite development server      |
+| `npm run build`   | Build the production site into `dist/` |
+| `npm run preview` | Serve the production build locally     |
+| `npm run lint`    | Run ESLint                             |
 
 For a local production preview:
 
@@ -61,25 +61,25 @@ When deploying, use `POE-hack` as the project root and `dist` as the output dire
 
 The welcome screen introduces StudySpot over the F&M campus map. Click **Find your study spot** to choose preferences.
 
-![StudySpot welcome screen with the campus map and Find your study spot button](docs/images/welcome.png)
+![StudySpot welcome screen with the campus map and Find your study spot button](POE-hack/docs/images/welcome.png)
 
 ### Choose your preferences
 
 Select a noise level, individual or group study, required equipment, and step-free access. Click **Match my StudySpot** to see eligible buildings and recommended rooms. Use **Edit preferences** on the map to update your choices later.
 
-![Preference panel with noise, study type, facilities, and step-free access dropdowns](docs/images/preferences.png)
+![Preference panel with noise, study type, facilities, and step-free access dropdowns](POE-hack/docs/images/preferences.png)
 
 ### Compare recommendations and inspect a location
 
 Select a result or map marker to open the building's information card. In this example, Hartman Green's photo, address, description, hours, and services appear beside the recommendation board. The **Study spaces** tab lists the individual spaces and their demo availability.
 
-![Hartman Green information card alongside campus markers and the matching study spots board](docs/images/results-and-details.png)
+![Hartman Green information card alongside campus markers and the matching study spots board](POE-hack/docs/images/results-and-details.png)
 
 ### Explore the map
 
 Click **Hide results** and close the information card for more room to explore. Full matches keep their labels visible, while eligible alternatives and other locations remain as selectable markers. Click **Show results** to reopen the board.
 
-![Campus map with the results board collapsed and matching buildings labeled](docs/images/campus-map.png)
+![Campus map with the results board collapsed and matching buildings labeled](POE-hack/docs/images/campus-map.png)
 
 For a sample search, choose **Quiet**, **Board + TV/Projector**, and **Required** for step-free access. Select **Brooks Seminar Room** from the results, then open **Study spaces** to inspect its amenities.
 
@@ -99,15 +99,15 @@ All campus locations remain on the map. Buildings failing mandatory requirements
 
 ## Architecture
 
-| Technology | Role |
-| --- | --- |
-| React | Components and shared application state |
-| Vite | Development server and production bundling |
-| React Router | Explore, Campus, and About routes |
-| React Leaflet and Leaflet | Map, markers, tooltips, and map movement |
-| Thunderforest | Map tiles |
-| JSON | Campus buildings, rooms, and preference options |
-| Browser Geolocation API | User location updates |
+| Technology                | Role                                            |
+| ------------------------- | ----------------------------------------------- |
+| React                     | Components and shared application state         |
+| Vite                      | Development server and production bundling      |
+| React Router              | Explore, Campus, and About routes               |
+| React Leaflet and Leaflet | Map, markers, tooltips, and map movement        |
+| Thunderforest             | Map tiles                                       |
+| JSON                      | Campus buildings, rooms, and preference options |
+| Browser Geolocation API   | User location updates                           |
 
 `App.jsx` owns the confirmed preferences. `Explore.jsx` computes the eligible results and shares the selected building with search, results, map markers, and the details card. `StudyMap.jsx` tracks the user's location through `watchPosition()`.
 
